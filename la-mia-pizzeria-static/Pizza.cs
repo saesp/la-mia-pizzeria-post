@@ -7,6 +7,8 @@
         public string? Description { get; set; }
         public string? Image { get; set; }
         public int Price { get; set; }
+         
+        public Pizza() {} //costruttore vuoto per permettere la creazione tramite form di nuovi oggetti Pizza
 
         public Pizza(int id, string name, string? description, string? image, int price)
         {
