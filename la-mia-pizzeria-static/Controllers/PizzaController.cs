@@ -43,6 +43,7 @@ namespace la_mia_pizzeria_static.Controllers
             pizzaCreate.Description = data.Description;
             pizzaCreate.Image = data.Image;
             pizzaCreate.Price = data.Price;
+            pizzaCreate.Category = data.Category;
 
             Pizza.pizzas.Add(pizzaCreate);
 
