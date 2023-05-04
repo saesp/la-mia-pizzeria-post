@@ -45,7 +45,7 @@ namespace la_mia_pizzeria_static.Controllers
             pizzaCreate.Price = data.Price;
             pizzaCreate.Category = data.Category;
 
-            Pizza.pizzas.Add(pizzaCreate);
+            Pizza.pizzas.Add(data);
 
             //context.Pizzas.SaveChanges();
             //context.SaveChanges();
@@ -54,21 +54,39 @@ namespace la_mia_pizzeria_static.Controllers
         }
 
 
+
+
+
+
         ////Update
         //[HttpGet]
-        //[ValidateAntiForgeryToken]
         //public IActionResult Edit()
         //{
-
-        //    return View(pizza);
+        //    return View();
         //}
 
         //[HttpPost]
-        //public IActionResult Edit(int id)
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Edit()
         //{
-        //    var pizza = Pizza.pizzas.FirstOrDefault(p => p.Id == id);
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View("Create", data);
+        //    }
 
-        //    return View(pizza);
+        //    Pizza pizzaCreate = new Pizza();
+        //    pizzaCreate.Name = data.Name;
+        //    pizzaCreate.Description = data.Description;
+        //    pizzaCreate.Image = data.Image;
+        //    pizzaCreate.Price = data.Price;
+        //    pizzaCreate.Category = data.Category;
+
+        //    Pizza.pizzas.Add(pizzaCreate);
+
+        //    //context.Pizzas.SaveChanges();
+        //    //context.SaveChanges();
+
+        //    return RedirectToAction("Index");
         //}
     }
 }

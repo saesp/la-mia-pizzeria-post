@@ -1,15 +1,37 @@
-﻿namespace la_mia_pizzeria_static
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace la_mia_pizzeria_static
 {
     public class Pizza
     {
         public int Id { get; set; }
+
+        private static int increment = 7; //si parte da 7 perché ho già inserito manualmente 6 istanze (e quindi 6 id)
+
+        [Required(ErrorMessage = "Il campo è obbligatorio.")]
+        [StringLength(100, ErrorMessage = "Il campo deve avere max 60 caratteri.")]
         public string Name { get; set; }
+
+        [Range(5, 1000, ErrorMessage = "Il campo deve rientare nel range di 5-500 caratteri.")]
         public string? Description { get; set; }
+
+        [StringLength(200, ErrorMessage = "Il campo deve rientare nel range di 5-500 caratteri.")]
         public string? Image { get; set; }
+
+        [Required(ErrorMessage = "Il campo è obbligatorio.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Il campo deve essere min 0.")]
         public int Price { get; set; }
+
         public string Category { get; set; }
 
-        public Pizza() {} //costruttore vuoto per permettere la creazione tramite form di nuovi oggetti Pizza
+
+        //costruttore vuoto per permettere la creazione tramite form di nuovi oggetti Pizza
+        public Pizza()
+        {
+            Id = increment;
+            increment++; //questo serve ad incrementare di 1 l'Id ad ogni creazione di un nuovo oggetto
+
+        } 
 
         public Pizza(int id, string name, string? description, string? image, int price, string category)
         {
@@ -21,6 +43,7 @@
             Category = category;
         }
 
+
         public static List<Pizza> pizzas = new()
         {
             new (1, "Marinara", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis, nunc ut varius pharetra, enim ipsum euismod ante, a sodales mauris dui nec lectus. Pellentesque ut justo vel nulla sagittis imperdiet non non risus. Nam et sollicitudin orci. Sed finibus eros ac bibendum mollis. ", "https://th.bing.com/th/id/R.2b81070d5bf07de3fc737e11828ec9fa?rik=HyW%2bu6OVuIEfWw&pid=ImgRaw&r=0", 4, "Rossa"),
@@ -30,5 +53,6 @@
             new (5, "Bufala", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis, nunc ut varius pharetra, enim ipsum euismod ante, a sodales mauris dui nec lectus. Pellentesque ut justo vel nulla sagittis imperdiet non non risus. Nam et sollicitudin orci. Sed finibus eros ac bibendum mollis. ", "https://th.bing.com/th/id/R.d026806ae7b9b122e68f1b28b22dba7b?rik=Rm%2bw5ToaHvSvKw&riu=http%3a%2f%2fwww.italianconceptrestaurant.com%2fwp-content%2fuploads%2f2020%2f06%2fbufala.jpg&ehk=11iv1pKIcWHQiV8m4lr2OHb1eunZyiKob%2fvJrcfdst8%3d&risl=&pid=ImgRaw&r=0", 8, "Rossa"),
             new (6, "Ortolana", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis, nunc ut varius pharetra, enim ipsum euismod ante, a sodales mauris dui nec lectus. Pellentesque ut justo vel nulla sagittis imperdiet non non risus. Nam et sollicitudin orci. Sed finibus eros ac bibendum mollis. ", "https://th.bing.com/th/id/R.711776b78a0f958f0dcb7d202ace90c9?rik=p2m7q8Z3oyU0lw&pid=ImgRaw&r=0", 8, "Bianca"),
         };
+
     }
 }

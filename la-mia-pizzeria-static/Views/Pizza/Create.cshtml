@@ -8,18 +8,22 @@
         <div class="mb-3">
             <strong>Nome:</strong>
             <input asp-for="Name" class="d-block w-100" />
+            <span asp-validation-for="Name" class="text-danger"></span> @*qui andrà il messaggio di errore della validazione*@
         </div>
         <div class="mb-3">
             <strong>Descrizione:</strong>
             <textarea asp-for="Description" class="d-block w-100" rows="5"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Immagine:</strong>
             <input asp-for="Image" class="d-block w-100" />
+            <span asp-validation-for="Image" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Prezzo:</strong>
             <input asp-for="Price" class="d-block w-100" />
+            <span asp-validation-for="Price" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <strong>Categoria:</strong>
